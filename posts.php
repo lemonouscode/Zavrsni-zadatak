@@ -6,14 +6,7 @@
             $sqlForPosts = "SELECT * FROM posts ORDER BY created_at DESC";
             $postsFromDb = getDataFromDb($connection,$sqlForPosts);
 
-            function dd($data){
-                echo "<pre>";
-                var_dump($data);
-                echo "</pre>";
-            }
-
-            // var_dump($postsFromDb);
-            // dd($postsFromDb);
+            
         ?>
 
         <div class="col-sm-8 blog-main">
@@ -22,7 +15,7 @@
 
 
             <div class="blog-post">
-                <h2 class="blog-post-title"><a href="#"> <?php echo $currentPost['Title']; ?> </a></h2>
+                <h2 class="blog-post-title"><a href="single-post.php?post_id=<?php echo($currentPost['id']) ?>"> <?php echo $currentPost['Title']; ?> </a></h2>
                 <p class="blog-post-meta"> <?php echo $currentPost['Created_at']; ?> by <a href="#"> <?php echo $currentPost['Author']; ?> </a></p>
 
                 <p> <?php echo $currentPost['Body']; ?> </p>
