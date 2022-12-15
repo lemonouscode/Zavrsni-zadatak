@@ -1,8 +1,6 @@
 <?php include('header.php'); ?>
 
-<main role="main" class="container">
 
-    <div class="row">
 
         <div class="col-sm-8 blog-main">
 
@@ -71,12 +69,10 @@
             </nav>
 
         </div><!-- /.blog-main -->
-
+        <?php include('sidebar.php'); ?>
         
 
-    </div><!-- /.row -->
+    
 
-</main><!-- /.container -->
-<?php include('sidebar.php'); ?>
 
 <?php include('footer.php'); ?>
