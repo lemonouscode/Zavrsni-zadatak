@@ -1,0 +1,50 @@
+html{
+    font-size:14px;
+}
+
+/* #b34848 */
+
+.blog-masthead {
+    background-color: #b34848;
+}
+
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    color: #b34848;
+}
+
+.blog-post-title a{
+    color:#b34848;
+}
+
+.error{
+    font-size:20px;
+    color:red;
+}
+
+.comments{
+    margin-top: 20px;
+}
+
+.hideComments{
+    display:none;
+}
+
+
+.line-clamp-2 { 
+    overflow:hidden; 
+    display:-webkit-box; 
+    -webkit-box-orient:vertical; 
+    -webkit-line-clamp:2; 
+}
