@@ -10,7 +10,7 @@
     <?php foreach($postsFromDbForSidebar as $current) { ?>
 
         <div class="sidebar-module sidebar-module-inset">
-            <h4> <a href="/single-post.php?post_id= <?php echo $current['id']; ?> "> <?php echo $current['Title']; ?> </a>  </h4>
+            <h4> <a href="/single-post.php?post_id=<?php echo $current['id']; ?> "> <?php echo $current['Title']; ?> </a>  </h4>
             <p class="line-clamp-2"> <?php echo $current['Body'] ?> </p>
         </div>
             

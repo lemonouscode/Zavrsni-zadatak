@@ -3,7 +3,9 @@
 <?php 
     
 
-    if(!empty($_POST)){
+    if(!empty($_POST) && !isset($_POST['comment_id_from_form'])){
+
+        
 
         $id = $_POST['post_id'];
 
@@ -26,11 +28,31 @@
             $sqlToWritePost = "INSERT INTO comments(comments_Author,comments_Body,post_id) VALUES('$author','$body',$id)";
             writeToDb($connection, $sqlToWritePost);
 
+            header("Location: single-post.php?post_id=$id");
+	        exit();
 
         }
     }
 
+    // dd($_POST);
 
+    if(isset($_POST['comment_id_from_form'])){
+        // Delete comment here
+        //getDataFromDb
+        //writeToDb
+        $cId = $_POST['comment_id_from_form'];
+
+        $sqlForComment = "
+        DELETE 
+        FROM comments
+        WHERE
+        id = $cId
+        ";
+
+        $t = writeToDb($connection, $sqlForComment);
+        // dd($t);
+    }
+    
     $myId = $_GET['post_id'];
 
     // Sql to join posts and comments
@@ -68,15 +90,10 @@
     </div><!-- /.blog-post -->
 
 
-    <button class="btn btn-default">Hide Comments</button>
-
-    <?php include('comments.php'); ?>
-
-
     <form style="display:flex; flex-direction:column;" action="" method="POST">
 
         <?php if (isset($_GET['error'])) { ?>
-            <p class="error"><?php echo $_GET['error']; ?></p>
+            <p class="alert alert-danger"><?php echo $_GET['error']; ?></p>
         <?php } ?>
 
         <input type="text" name="post_id" id="" hidden value="<?php echo $_GET['post_id'] ?>">
@@ -88,6 +105,12 @@
         <button type="submit">Post a comment</button>
 
     </form>
+
+    <button class="btn btn-default margins">Hide Comments</button>
+
+    <?php include('comments.php'); ?>
+
+
 </div>
 
 <script>
@@ -107,9 +130,6 @@
         }
 
     })
-
-
-    
 
 </script>
 
